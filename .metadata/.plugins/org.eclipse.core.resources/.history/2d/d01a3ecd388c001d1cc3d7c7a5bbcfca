@@ -1,0 +1,5 @@
+package com.digitalbooks.userService.controller;
+
+public class BookController {
+
+}

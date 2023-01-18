@@ -1,0 +1,22 @@
+package com.digitalbooks.userService.controller;
+
+public class BookController {
+
+	@GetMapping("/movies")
+    // from database -> movie service
+    public List<Show> getMovies(){
+        System.out.println("Finding movies from movieservice");
+        // send rest request to movie service 
+
+        // RestTemplate rt = new RestTemplate();
+        // return rt.exchange(
+        //     "http://localhost:8989/app", 
+        //     HttpMethod.GET, 
+        //     null, 
+        //     new ParameterizedTypeReference<List<Show>>() {}
+        // ).getBody();
+;
+
+        return movieClient.getMovies();
+    } 
+}

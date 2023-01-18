@@ -1,0 +1,6 @@
+package com.digitalbooks.userService.entity;
+
+public class Role {
+private String roleName;
+private String rolDescription;
+}

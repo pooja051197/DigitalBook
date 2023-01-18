@@ -1,0 +1,23 @@
+<div>
+    <p *ngIf="books.length == 0" [ngStyle]="{color: 'red'}"> There are no books to display. Please create a Book !!!!!</p> 
+
+</div>
+<div *ngFor="let book of books" >
+    <mat-card class="mt-20">
+<mat-card-header>
+    <mat-card-title> Title :{{book.title}}</mat-card-title>
+    <mat-card-subtitle>Category: {{book.category}}</mat-card-subtitle>
+   
+</mat-card-header>
+<mat-card-content>Price: {{book.price}}</mat-card-content>
+<mat-card-content>Content: {{book.content}}</mat-card-content>
+<mat-card-content>Published Date: {{book.publishDate}}</mat-card-content>
+<mat-card-content>Publisher: {{book.publisher}}</mat-card-content>
+<mat-card-content>Active: {{book.active}}</mat-card-content>
+
+</mat-card>
+<button *ngIf="isUserLoggedIn && isAuthor" [disabled]='blockBook'  mat-raised-button (click)="block(book.id)" style="margin-left: 20px; margin-top: 20px" color="accent"> Block Book</button>
+<button *ngIf="isUserLoggedIn && isAuthor" [disabled]='unblockBook' mat-raised-button (click)="unblock(book.id)" style="margin-left: 20px; margin-top: 20px;" color="primary">Unblock Book</button>
+<button *ngIf="isUserLoggedIn && isAuthor"  mat-raised-button (click)="deleteBook(book.id)" style="margin-left: 20px; margin-top: 20px" color="accent"> Delete Book</button>
+
+</div>

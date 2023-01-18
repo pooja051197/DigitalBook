@@ -1,0 +1,32 @@
+package com.digitalbooks.userService.entity;
+
+import java.io.Serializable;
+
+public class JwtResponse implements Serializable {
+
+	private static final long serialVersionUID = -8091879091924046844L;
+	private final String jwttoken;
+	private BUser user;
+
+	public JwtResponse(BUser user, String jwttoken) {
+		this.user=user;
+		this.jwttoken = jwttoken;
+	}
+	
+	
+
+	public BUser getUser() {
+		return user;
+	}
+
+
+	public void setUser(BUser user) {
+		this.user = user;
+	}
+
+
+	public String getToken() {
+		return this.jwttoken;
+	}
+	
+}

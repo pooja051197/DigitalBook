@@ -1,0 +1,65 @@
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/home"   href="#">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active"  *ngIf="userService.roleMatch('Reader')" aria-current="page"
+                     routerLink="/user"  href="#">User Dashboard</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" *ngIf="userService.roleMatch('Author')" 
+                     aria-current="page"  routerLink="/author" href="#">Author Dashboard</a>
+                </li>
+
+                <li class="nav-item">
+                <a *ngIf="userService.roleMatch('Reader')" class="nav-link" ><i
+                    class="fa fa-book" aria-hidden="true"></i> My Books</a>
+                </li>
+                <li class="nav-item">
+                <a *ngIf="userService.roleMatch('Author')" class="nav-link active" ><i
+                    class="fa fa-book" aria-hidden="true"></i>Author's book</a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="userService.roleMatch('Author')" class="nav-link active" ><i
+                        class="fa fa-book" routerLink="/author/createBook" href="#" aria-hidden="true"></i>Create book</a>
+                    </li>
+            </ul>
+            <button *ngIf="! isUserLoggedIn()" type="button"  class="btn btn-success" routerLink="/signup">SignUp</button>
+            <button *ngIf="! isUserLoggedIn()" type="button"  class="btn btn-success" routerLink="/login">Login</button>
+            <button *ngIf="isUserLoggedIn()" type="button"    class="btn btn-danger" (click)="logout()">Logout</button>
+
+        </div>
+    </div>
+</nav> -->
+
+
+<mat-toolbar color="primary">
+    <mat-icon>book </mat-icon>
+   
+    <span>&nbsp; DigitalBook</span>
+    <span class ="space-button"></span>
+    <button *ngIf="!isUserLoggedIn()" mat-raised-button color="accent" routerLink="/signup" style="margin-right: 20px;">Register</button>
+    <button *ngIf="! isUserLoggedIn()" mat-raised-button color="accent" routerLink="/login">Login</button>
+    <button *ngIf="isUserLoggedIn()" mat-raised-button color="warn" (click)="logout()">Logout</button>
+</mat-toolbar>
+
+<mat-toolbar color="primary">
+   
+    <button  mat-raised-button color="accent" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</button>
+    <button *ngIf="isUserLoggedIn() && isAuthor()" mat-raised-button [routerLink]="['/createBook']" style="margin-left: 20px;" color="primary">Create Book</button>
+    <button *ngIf="isUserLoggedIn() && isAuthor()" mat-raised-button [routerLink]="['/searchBook']" style="margin-left: 20px;" color="accent">My Books</button>
+
+    <button *ngIf="isUserLoggedIn() && !isAuthor()" mat-raised-button [routerLink]="['/read']" style="margin-left: 20px;" color="accent">My Subscribed Books</button>
+    <button *ngIf="isUserLoggedIn() && isAuthor()" mat-raised-button [routerLink]="['/editBook']" style="margin-left: 20px;" color="primary">Edit Book</button>  
+    <button *ngIf="isUserLoggedIn()" mat-raised-button [routerLink]="['/searchAllBook']" style="margin-left: 20px;" color="accent">Search Book</button>
+</mat-toolbar>

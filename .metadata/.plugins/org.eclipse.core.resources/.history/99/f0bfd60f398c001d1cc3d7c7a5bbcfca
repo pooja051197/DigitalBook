@@ -1,0 +1,26 @@
+package com.digitalbooks.userService.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.digitalbooks.userService.entity.Book;
+import com.digitalbooks.userService.restclient.BookClient;
+
+@RestController
+public class BookController {
+	
+	@Autowired
+ private BookClient bookClient;
+	
+	@GetMapping("/movies")
+    // from database -> movie service
+    public List<Book> getMovies(){
+        System.out.println("Finding Book from Bookservice");
+      
+
+        return bookClient.searchBooks();
+    } 
+}

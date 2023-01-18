@@ -1,0 +1,36 @@
+<!-- <div>
+    <form #bookIdForm="ngForm" >
+    <mat-form-field  style="margin-top: 20px;" class="full-width"  appearance="outline">
+        <mat-label>Book Id</mat-label>
+        <input 
+      [(ngModel)]="bookId" name ="bookId"
+         matInput placeholder="Enter Book Id" >  
+      </mat-form-field>
+      <div> <button  mat-stroked-button color="primary" [routerLink]="['/searchCriteria/showBook/']">Search</button></div>
+    </form>
+    </div>
+
+     -->
+<div>
+  <p *ngIf="books1.length == 0" [ngStyle]="{color: 'red'}"> There are no books to display.!!!!!</p> 
+
+</div>
+     <div *ngFor="let b of books1">
+        <mat-card  class="mt-20">
+          <mat-card-header>
+            <!-- <mat-card-title>Book ID: {{b.id}}</mat-card-title> -->
+              <mat-card-title>Title: {{b.title}}</mat-card-title>
+              <mat-card-subtitle>Category: {{b.category}}</mat-card-subtitle>        
+          </mat-card-header>
+          <mat-card-content>Price: {{b.price}}</mat-card-content>
+          <mat-card-content>Content: {{b.content}}</mat-card-content>
+          <mat-card-content>Published Date: {{b.publishDate}}</mat-card-content> 
+         <mat-card-content>Publisher: {{b.publisher}}</mat-card-content> -
+          <mat-card-content>Active: {{b.active}}</mat-card-content>
+          
+          </mat-card>  
+          <button *ngIf="isUserLoggedIn && !isAuthor"   [disabled]='btnSubscribe' mat-raised-button (click)="subscribe(b.id)" style="margin-left: 20px; margin-top: 20px" color="accent"> Subscribe Books</button>
+          <button *ngIf="isUserLoggedIn && !isAuthor " [disabled]="btnUnSubscribe"  mat-raised-button (click)="unsubscribe(b.id)" style="margin-left: 20px; margin-top: 20px;" color="primary">UnSubscribed Books</button>
+      
+          </div>
+          

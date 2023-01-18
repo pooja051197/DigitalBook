@@ -1,0 +1,34 @@
+package com.digitalbooks.userService.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.digitalbooks.userService.restclient.BookClient;
+
+@RestController
+public class BookController {
+	
+	@Autowired
+ private BookClient bookClient;
+	
+	@GetMapping("/movies")
+    // from database -> movie service
+    public List<Show> getMovies(){
+        System.out.println("Finding movies from movieservice");
+        // send rest request to movie service 
+
+        // RestTemplate rt = new RestTemplate();
+        // return rt.exchange(
+        //     "http://localhost:8989/app", 
+        //     HttpMethod.GET, 
+        //     null, 
+        //     new ParameterizedTypeReference<List<Show>>() {}
+        // ).getBody();
+;
+
+        return bookClient.searchBooks();
+    } 
+}

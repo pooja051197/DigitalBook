@@ -1,0 +1,73 @@
+<div class="container mt-5">
+    <div class="card p-2">
+        <div class="row">
+            <div class="col-7">
+                <form #bookeditForm="ngForm" (ngSubmit)="editBook(bookeditForm)">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Book Id</mat-label>
+                        <input     [(ngModel)]="bookId" name ="bookId" required  matInput placeholder="Enter BookId">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input [(ngModel)]="book.title" required name="title" matInput placeholder="Enter Title">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Category</mat-label>
+                        <input [(ngModel)]="book.category" required name="category" matInput
+                            placeholder="Enter Category">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Price</mat-label>
+                        <input [(ngModel)]="book.price" required name="price" matInput placeholder="Enter Price">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Publish Date</mat-label>
+                        <input [(ngModel)]="book.publishDate" required name="publishDate" matInput
+                            placeholder="Enter Publish Date">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Publisher</mat-label>
+                        <input [(ngModel)]="book.publisher" required name="publisher" matInput
+                            placeholder="Enter Publisher">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Image</mat-label>
+                        <input [(ngModel)]="book.image"  required name="image" matInput placeholder="Give path">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Content</mat-label>
+                        <input [(ngModel)]="book.content" required name="content" matInput placeholder="Enter Content">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Author Id</mat-label>
+                        <input [(ngModel)]="book.authorId" required name="authorId" matInput
+                            placeholder="Enter Author Id">
+                    </mat-form-field>
+
+                    <mat-radio-group [(ngModel)]="book.active" name="active" aria-label="Active">
+                        Active
+                        <mat-radio-button value="true" selected>Yes</mat-radio-button>
+                        <mat-radio-button value="false">No</mat-radio-button>
+                    </mat-radio-group>
+
+                    <div align="end">
+                        <button type="submit" mat-stroked-button color="primary">Edit</button>
+                        <button type="reset" mat-stroked-button color="accent" style="margin-left: 20px;">Clear</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-5"></div>
+
+        </div>
+
+    </div>
+
+</div>
